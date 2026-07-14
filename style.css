@@ -7,6 +7,7 @@ h1, h2 {
     padding-left: 15px;
     color: hsl(26, 42%, 19%);
     text-decoration-line: underline;
+    text-align:center;
 
 }
 html {
@@ -16,13 +17,14 @@ html {
 }
 body {
     background-color: hsl(39, 59%, 78%);
-    margin: auto;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
     max-width: 1020px;
     min-width: 640px;
-    padding: 20px;
     border-style: hidden;
     border-radius: 12px;
+    line-height: 1;
     
 }
 
@@ -45,7 +47,11 @@ body > ol {
     border-radius: 12px;
 }
 
-
+body::after{
+    clear:both;
+    content:"";
+    display: table;
+}
 
 /* Navigation */
 
@@ -54,15 +60,26 @@ nav {
     padding: 10px;
     background-color: hsl(36, 20%, 95%);
     border-style: hidden;
-    max-width: 500px;
-    text-align: center;
+    justify-content: center;
+    width: 98%;
     
 }
 
-nav > ul 
+ul 
 { 
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
 }
+
+ ul > li > a{
+    display: block;
+    padding: 14px 16px;
+    
+}
+
 nav > ul > li > a:link, nav > ul > li > a:visited {
    color: hsl(18, 71%, 27%);
    text-decoration: none;
@@ -73,18 +90,49 @@ nav > ul > li > a:hover, nav > ul > li > a:active {
    text-decoration: underline;
    text-transform: uppercase;
    font-size: 1.5em;
+   background-color: aqua;
+}
+
+/*floater */
+
+section#leftColumn {
+    clear: left;
+    float: left;
+    width: 50%;
+}
+
+section#rightColumn{
+    float: left;
+    width: 50%;
+    background-color: hsl(40, 58%, 89%);
+}
+
+section#leftColumn img {
+    max-width:100%;
 }
 
 /*Footer*/
  Footer {
      font-family:'Courier New', Courier, monospace;
-    margin-left: 45px;
-    background-color: hsl(40, 58%, 89%);
+    clear: left;
+     background-color: hsl(36, 20%, 95%);
     border-style: hidden;
+    float: left;
+    width:100%; 
  }
   Footer > p > a{
      font-family:'Courier New', Courier, monospace;
     margin-left: auto;
     color: hsl(18, 71%, 27%);
     border-style: hidden;
+ }
+
+footer, header, main, nav, section {
+    display: block;
+}
+
+ body > footer::after {
+    clear: both;
+    content: "";
+    display: table;
  }
